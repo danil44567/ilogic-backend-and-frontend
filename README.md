@@ -4,3 +4,4 @@
 - [Занятие 2. Кнопки и блоки](lessons/02-knopki-i-bloki.md)
 - [Занятие 3. Блоки в ряд](lessons/03-bloki-v-ryad.md)
 - [Занятие 4. Карточки и форма](lessons/04-kartochki-i-forma.md)
+- [Занятие 5. Выбор в форме](lessons/05-vybor-v-forme.md)
