@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Три группы</title>
+  <link rel="stylesheet" href="07.css">
+</head>
+<body>
+  <div class="card">
+    <form class="signup">
+      <label>
+        Имя
+        <input class="name" type="text" name="name" required>
+      </label>
+      <label class="choice">
+        <input class="beginner" type="radio" name="group">
+        Начинающие
+      </label>
+      <label class="choice">
+        <input class="middle" type="radio" name="group">
+        Продолжающие
+      </label>
+      <label class="choice">
+        <input class="advanced" type="radio" name="group">
+        Мастера
+      </label>
+      <button type="submit">Отправить</button>
+      <p class="answer"></p>
+    </form>
+  </div>
+  <script>
+    const form = document.querySelector('.signup');
+    const nameField = document.querySelector('.name');
+    const beginner = document.querySelector('.beginner');
+    const middle = document.querySelector('.middle');
+    const advanced = document.querySelector('.advanced');
+    const answer = document.querySelector('.answer');
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      if (beginner.checked) {
+        answer.textContent = 'Группа для новичков, ' + nameField.value;
+      } else if (middle.checked) {
+        answer.textContent = 'Группа для продолжающих, ' + nameField.value;
+      } else if (advanced.checked) {
+        answer.textContent = 'Группа дальше, ' + nameField.value;
+      } else {
+        answer.textContent = 'Сначала выбери группу';
+      }
+    });
+  </script>
+</body>
+</html>

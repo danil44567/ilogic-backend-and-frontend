@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Пустое имя</title>
+  <link rel="stylesheet" href="07.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <label>
+        Имя
+        <input class="name" type="text">
+      </label>
+      <p class="answer">Напиши имя</p>
+    </div>
+  </div>
+  <script>
+    const nameField = document.querySelector('.name');
+    const answer = document.querySelector('.answer');
+
+    nameField.addEventListener('input', function () {
+      if (nameField.value === '') {
+        answer.textContent = 'Напиши имя';
+      } else {
+        answer.textContent = 'Привет, ' + nameField.value;
+      }
+    });
+  </script>
+</body>
+</html>

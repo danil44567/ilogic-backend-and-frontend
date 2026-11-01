@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Один список, три темы</title>
+  <link rel="stylesheet" href="07.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <label>
+        Тема
+        <select class="topic">
+          <option value="">Выбери тему</option>
+          <option value="clay">Глина</option>
+          <option value="wood">Дерево</option>
+          <option value="cloth">Ткань</option>
+        </select>
+      </label>
+      <p class="clay hidden">Лепим чашки и тарелки.</p>
+      <p class="wood hidden">Точим деревянные ложки.</p>
+      <p class="cloth hidden">Красим ткань в разные цвета.</p>
+    </div>
+  </div>
+  <script>
+    const topic = document.querySelector('.topic');
+    const clay = document.querySelector('.clay');
+    const wood = document.querySelector('.wood');
+    const cloth = document.querySelector('.cloth');
+
+    topic.addEventListener('change', function () {
+      if (topic.value === 'clay') {
+        clay.classList.remove('hidden');
+        wood.classList.add('hidden');
+        cloth.classList.add('hidden');
+      } else if (topic.value === 'wood') {
+        wood.classList.remove('hidden');
+        clay.classList.add('hidden');
+        cloth.classList.add('hidden');
+      } else if (topic.value === 'cloth') {
+        cloth.classList.remove('hidden');
+        clay.classList.add('hidden');
+        wood.classList.add('hidden');
+      } else {
+        clay.classList.add('hidden');
+        wood.classList.add('hidden');
+        cloth.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+</html>

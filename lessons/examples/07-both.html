@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Обе галочки</title>
+  <link rel="stylesheet" href="07.css">
+</head>
+<body>
+  <div class="card">
+    <form class="signup">
+      <label>
+        Имя
+        <input class="name" type="text" name="name" required>
+      </label>
+      <label class="choice">
+        <input class="rules" type="checkbox" name="rules">
+        Я прочитал правила
+      </label>
+      <label class="choice">
+        <input class="news" type="checkbox" name="news">
+        Хочу письма о занятиях
+      </label>
+      <button type="submit">Отправить</button>
+      <p class="answer"></p>
+    </form>
+  </div>
+  <script>
+    const form = document.querySelector('.signup');
+    const nameField = document.querySelector('.name');
+    const rules = document.querySelector('.rules');
+    const news = document.querySelector('.news');
+    const answer = document.querySelector('.answer');
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      if (rules.checked && news.checked) {
+        answer.textContent = 'Ждём тебя, ' + nameField.value;
+      } else {
+        answer.textContent = 'Нужны обе галочки';
+      }
+    });
+  </script>
+</body>
+</html>

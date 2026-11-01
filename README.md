@@ -6,3 +6,4 @@
 - [Занятие 4. Карточки и форма](lessons/04-kartochki-i-forma.md)
 - [Занятие 5. Выбор в форме](lessons/05-vybor-v-forme.md)
 - [Занятие 6. Знакомство с JavaScript](lessons/06-znakomstvo-s-javascript.md)
+- [Занятие 7. If и else](lessons/07-if-i-else.md)

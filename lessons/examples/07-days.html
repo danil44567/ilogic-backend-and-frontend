@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Дни в списке</title>
+  <link rel="stylesheet" href="07.css">
+</head>
+<body>
+  <div class="card">
+    <form class="signup">
+      <label>
+        Имя
+        <input class="name" type="text" name="name" required>
+      </label>
+      <label>
+        День
+        <select class="day" name="day">
+          <option value="">Выбери день</option>
+          <option value="mon">Понедельник</option>
+          <option value="wed">Среда</option>
+          <option value="fri">Пятница</option>
+        </select>
+      </label>
+      <button type="submit">Отправить</button>
+      <p class="answer"></p>
+    </form>
+  </div>
+  <script>
+    const form = document.querySelector('.signup');
+    const nameField = document.querySelector('.name');
+    const day = document.querySelector('.day');
+    const answer = document.querySelector('.answer');
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      if (day.value === 'mon') {
+        answer.textContent = 'Ждём в понедельник, ' + nameField.value;
+      } else if (day.value === 'wed') {
+        answer.textContent = 'Ждём в среду, ' + nameField.value;
+      } else if (day.value === 'fri') {
+        answer.textContent = 'Ждём в пятницу, ' + nameField.value;
+      } else {
+        answer.textContent = 'Выбери день';
+      }
+    });
+  </script>
+</body>
+</html>
