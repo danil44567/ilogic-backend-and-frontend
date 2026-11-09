@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Три товара</title>
+  <link rel="stylesheet" href="08.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <h2>Канцтовары</h2>
+
+      <div class="product">
+        <h2>Карандаш</h2>
+        <p class="price">Цена: 15</p>
+        <p class="first-count answer">0</p>
+        <div class="buttons">
+          <button class="first-more" type="button">Ещё</button>
+          <button class="first-less" type="button">Меньше</button>
+        </div>
+      </div>
+
+      <div class="product">
+        <h2>Тетрадь</h2>
+        <p class="price">Цена: 40</p>
+        <p class="second-count answer">0</p>
+        <div class="buttons">
+          <button class="second-more" type="button">Ещё</button>
+          <button class="second-less" type="button">Меньше</button>
+        </div>
+      </div>
+
+      <div class="product">
+        <h2>Краски</h2>
+        <p class="price">Цена: 120</p>
+        <p class="third-count answer">0</p>
+        <div class="buttons">
+          <button class="third-more" type="button">Ещё</button>
+          <button class="third-less" type="button">Меньше</button>
+        </div>
+      </div>
+
+      <div class="product">
+        <p>Итого</p>
+        <p class="total answer">0</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    const firstMore = document.querySelector('.first-more');
+    const firstLess = document.querySelector('.first-less');
+    const firstCountText = document.querySelector('.first-count');
+    const secondMore = document.querySelector('.second-more');
+    const secondLess = document.querySelector('.second-less');
+    const secondCountText = document.querySelector('.second-count');
+    const thirdMore = document.querySelector('.third-more');
+    const thirdLess = document.querySelector('.third-less');
+    const thirdCountText = document.querySelector('.third-count');
+    const total = document.querySelector('.total');
+
+    let firstCount = 0;
+    let secondCount = 0;
+    let thirdCount = 0;
+    const firstPrice = 15;
+    const secondPrice = 40;
+    const thirdPrice = 120;
+
+    firstMore.addEventListener('click', function () {
+      firstCount = firstCount + 1;
+      firstCountText.textContent = firstCount;
+      total.textContent = firstPrice * firstCount + secondPrice * secondCount + thirdPrice * thirdCount;
+    });
+
+    firstLess.addEventListener('click', function () {
+      if (firstCount > 0) {
+        firstCount = firstCount - 1;
+      }
+      firstCountText.textContent = firstCount;
+      total.textContent = firstPrice * firstCount + secondPrice * secondCount + thirdPrice * thirdCount;
+    });
+
+    secondMore.addEventListener('click', function () {
+      secondCount = secondCount + 1;
+      secondCountText.textContent = secondCount;
+      total.textContent = firstPrice * firstCount + secondPrice * secondCount + thirdPrice * thirdCount;
+    });
+
+    secondLess.addEventListener('click', function () {
+      if (secondCount > 0) {
+        secondCount = secondCount - 1;
+      }
+      secondCountText.textContent = secondCount;
+      total.textContent = firstPrice * firstCount + secondPrice * secondCount + thirdPrice * thirdCount;
+    });
+
+    thirdMore.addEventListener('click', function () {
+      thirdCount = thirdCount + 1;
+      thirdCountText.textContent = thirdCount;
+      total.textContent = firstPrice * firstCount + secondPrice * secondCount + thirdPrice * thirdCount;
+    });
+
+    thirdLess.addEventListener('click', function () {
+      if (thirdCount > 0) {
+        thirdCount = thirdCount - 1;
+      }
+      thirdCountText.textContent = thirdCount;
+      total.textContent = firstPrice * firstCount + secondPrice * secondCount + thirdPrice * thirdCount;
+    });
+  </script>
+</body>
+</html>

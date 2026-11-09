@@ -7,3 +7,4 @@
 - [Занятие 5. Выбор в форме](lessons/05-vybor-v-forme.md)
 - [Занятие 6. Знакомство с JavaScript](lessons/06-znakomstvo-s-javascript.md)
 - [Занятие 7. If и else](lessons/07-if-i-else.md)
+- [Занятие 8. Страница считает](lessons/08-stranica-schitaet.md)

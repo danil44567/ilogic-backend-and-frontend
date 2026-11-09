@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Счётчик</title>
+  <link rel="stylesheet" href="08.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <h2>Наклейки</h2>
+      <button class="more" type="button">Ещё</button>
+      <p class="answer">0</p>
+    </div>
+  </div>
+  <script>
+    const more = document.querySelector('.more');
+    const answer = document.querySelector('.answer');
+    let count = 0;
+
+    more.addEventListener('click', function () {
+      count = count + 1;
+      answer.textContent = count;
+    });
+  </script>
+</body>
+</html>

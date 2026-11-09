@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Сумма</title>
+  <link rel="stylesheet" href="08.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <h2>Фрукты</h2>
+      <label>
+        Яблоки
+        <input class="first" type="text" value="0">
+      </label>
+      <label>
+        Груши
+        <input class="second" type="text" value="0">
+      </label>
+      <p class="answer">0</p>
+    </div>
+  </div>
+  <script>
+    const first = document.querySelector('.first');
+    const second = document.querySelector('.second');
+    const answer = document.querySelector('.answer');
+
+    first.addEventListener('input', function () {
+      answer.textContent = Number(first.value) + Number(second.value);
+    });
+
+    second.addEventListener('input', function () {
+      answer.textContent = Number(first.value) + Number(second.value);
+    });
+  </script>
+</body>
+</html>

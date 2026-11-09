@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Больше и меньше</title>
+  <link rel="stylesheet" href="08.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <h2>Места</h2>
+      <div class="buttons">
+        <button class="more" type="button">Ещё</button>
+        <button class="less" type="button">Меньше</button>
+      </div>
+      <p class="answer">0</p>
+    </div>
+  </div>
+  <script>
+    const more = document.querySelector('.more');
+    const less = document.querySelector('.less');
+    const answer = document.querySelector('.answer');
+    let count = 0;
+
+    more.addEventListener('click', function () {
+      count = count + 1;
+      answer.textContent = count;
+    });
+
+    less.addEventListener('click', function () {
+      if (count > 0) {
+        count = count - 1;
+      }
+      answer.textContent = count;
+    });
+  </script>
+</body>
+</html>
