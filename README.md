@@ -8,3 +8,4 @@
 - [Занятие 6. Знакомство с JavaScript](lessons/06-znakomstvo-s-javascript.md)
 - [Занятие 7. If и else](lessons/07-if-i-else.md)
 - [Занятие 8. Страница считает](lessons/08-stranica-schitaet.md)
+- [Занятие 9. Функция](lessons/09-funkciya.md)

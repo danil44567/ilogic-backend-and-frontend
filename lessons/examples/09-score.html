@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Два шага</title>
+  <link rel="stylesheet" href="09.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <h2>Дартс</h2>
+      <div class="buttons">
+        <button class="small" type="button">+2</button>
+        <button class="large" type="button">+5</button>
+      </div>
+      <p class="answer">0</p>
+    </div>
+  </div>
+  <script>
+    const small = document.querySelector('.small');
+    const large = document.querySelector('.large');
+    const answer = document.querySelector('.answer');
+    let score = 0;
+
+    function showScore() {
+      answer.textContent = score;
+    }
+
+    small.addEventListener('click', function () {
+      score = score + 2;
+      showScore();
+    });
+
+    large.addEventListener('click', function () {
+      score = score + 5;
+      showScore();
+    });
+  </script>
+</body>
+</html>

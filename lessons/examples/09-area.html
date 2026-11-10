@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Площадь</title>
+  <link rel="stylesheet" href="09.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <h2>Ковёр</h2>
+      <label>
+        Ширина
+        <input class="width" type="text" value="0">
+      </label>
+      <label>
+        Длина
+        <input class="height" type="text" value="0">
+      </label>
+      <p class="answer">0</p>
+    </div>
+  </div>
+  <script>
+    const width = document.querySelector('.width');
+    const height = document.querySelector('.height');
+    const answer = document.querySelector('.answer');
+
+    function area(widthValue, heightValue) {
+      return widthValue * heightValue;
+    }
+
+    function showArea() {
+      answer.textContent = area(Number(width.value), Number(height.value));
+    }
+
+    width.addEventListener('input', function () {
+      showArea();
+    });
+
+    height.addEventListener('input', function () {
+      showArea();
+    });
+  </script>
+</body>
+</html>

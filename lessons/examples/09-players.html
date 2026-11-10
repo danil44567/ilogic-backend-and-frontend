@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Два игрока</title>
+  <link rel="stylesheet" href="09.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <h2>Настолка</h2>
+
+      <div class="product">
+        <h2>Лиса</h2>
+        <p>Шаг: 4</p>
+        <p class="first-points answer">0</p>
+        <button class="first" type="button">+4</button>
+      </div>
+
+      <div class="product">
+        <h2>Волк</h2>
+        <p>Шаг: 7</p>
+        <p class="second-points answer">0</p>
+        <button class="second" type="button">+7</button>
+      </div>
+
+      <div class="product">
+        <p>Сумма</p>
+        <p class="total answer">0</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    const firstButton = document.querySelector('.first');
+    const secondButton = document.querySelector('.second');
+    const firstText = document.querySelector('.first-points');
+    const secondText = document.querySelector('.second-points');
+    const total = document.querySelector('.total');
+
+    let firstPoints = 0;
+    let secondPoints = 0;
+    const firstStep = 4;
+    const secondStep = 7;
+
+    function add(points, step) {
+      return points + step;
+    }
+
+    function showTotal() {
+      total.textContent = firstPoints + secondPoints;
+    }
+
+    firstButton.addEventListener('click', function () {
+      firstPoints = add(firstPoints, firstStep);
+      firstText.textContent = firstPoints;
+      showTotal();
+    });
+
+    secondButton.addEventListener('click', function () {
+      secondPoints = add(secondPoints, secondStep);
+      secondText.textContent = secondPoints;
+      showTotal();
+    });
+  </script>
+</body>
+</html>

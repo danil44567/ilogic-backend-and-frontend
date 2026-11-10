@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>До цели</title>
+  <link rel="stylesheet" href="09.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <h2>Квест</h2>
+      <p>Цель: 15</p>
+      <div class="buttons">
+        <button class="small" type="button">+4</button>
+        <button class="large" type="button">+6</button>
+      </div>
+      <p class="score answer">0</p>
+      <p>Осталось</p>
+      <p class="left answer">15</p>
+    </div>
+  </div>
+  <script>
+    const small = document.querySelector('.small');
+    const large = document.querySelector('.large');
+    const scoreText = document.querySelector('.score');
+    const leftText = document.querySelector('.left');
+    const goal = 15;
+    const smallStep = 4;
+    const largeStep = 6;
+    let score = 0;
+
+    function add(points, step) {
+      return points + step;
+    }
+
+    function left(goalValue, points) {
+      if (points > goalValue) {
+        return 0;
+      }
+      return goalValue - points;
+    }
+
+    function show() {
+      scoreText.textContent = score;
+      leftText.textContent = left(goal, score);
+    }
+
+    small.addEventListener('click', function () {
+      score = add(score, smallStep);
+      show();
+    });
+
+    large.addEventListener('click', function () {
+      score = add(score, largeStep);
+      show();
+    });
+  </script>
+</body>
+</html>

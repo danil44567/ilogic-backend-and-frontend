@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Сдача</title>
+  <link rel="stylesheet" href="09.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <h2>Лоток</h2>
+      <p>Цена: 60</p>
+      <label>
+        Отдано
+        <input class="paid" type="text" value="60">
+      </label>
+      <p class="answer">0</p>
+    </div>
+  </div>
+  <script>
+    const price = 60;
+    const paid = document.querySelector('.paid');
+    const answer = document.querySelector('.answer');
+
+    function change(paidValue, itemPrice) {
+      if (paidValue > itemPrice) {
+        return paidValue - itemPrice;
+      }
+      return 0;
+    }
+
+    paid.addEventListener('input', function () {
+      answer.textContent = change(Number(paid.value), price);
+    });
+  </script>
+</body>
+</html>

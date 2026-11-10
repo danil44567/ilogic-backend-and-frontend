@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Три игрока до цели</title>
+  <link rel="stylesheet" href="09.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <h2>Эстафета</h2>
+      <p>Цель: 20</p>
+
+      <div class="product">
+        <h2>Заяц</h2>
+        <p>Шаг: 3</p>
+        <p class="first-points answer">0</p>
+        <button class="first" type="button">+3</button>
+      </div>
+
+      <div class="product">
+        <h2>Ёж</h2>
+        <p>Шаг: 5</p>
+        <p class="second-points answer">0</p>
+        <button class="second" type="button">+5</button>
+      </div>
+
+      <div class="product">
+        <h2>Сова</h2>
+        <p>Шаг: 8</p>
+        <p class="third-points answer">0</p>
+        <button class="third" type="button">+8</button>
+      </div>
+
+      <div class="product">
+        <p>Сумма</p>
+        <p class="total answer">0</p>
+        <p>Осталось</p>
+        <p class="left answer">20</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    const firstButton = document.querySelector('.first');
+    const secondButton = document.querySelector('.second');
+    const thirdButton = document.querySelector('.third');
+    const firstText = document.querySelector('.first-points');
+    const secondText = document.querySelector('.second-points');
+    const thirdText = document.querySelector('.third-points');
+    const total = document.querySelector('.total');
+    const leftText = document.querySelector('.left');
+
+    let firstPoints = 0;
+    let secondPoints = 0;
+    let thirdPoints = 0;
+    const firstStep = 3;
+    const secondStep = 5;
+    const thirdStep = 8;
+    const goal = 20;
+
+    function add(points, step) {
+      return points + step;
+    }
+
+    function totalPoints() {
+      return firstPoints + secondPoints + thirdPoints;
+    }
+
+    function left(goalValue, points) {
+      if (points > goalValue) {
+        return 0;
+      }
+      return goalValue - points;
+    }
+
+    function show() {
+      const sum = totalPoints();
+      total.textContent = sum;
+      leftText.textContent = left(goal, sum);
+    }
+
+    firstButton.addEventListener('click', function () {
+      firstPoints = add(firstPoints, firstStep);
+      firstText.textContent = firstPoints;
+      show();
+    });
+
+    secondButton.addEventListener('click', function () {
+      secondPoints = add(secondPoints, secondStep);
+      secondText.textContent = secondPoints;
+      show();
+    });
+
+    thirdButton.addEventListener('click', function () {
+      thirdPoints = add(thirdPoints, thirdStep);
+      thirdText.textContent = thirdPoints;
+      show();
+    });
+  </script>
+</body>
+</html>
