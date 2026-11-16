@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Две цены</title>
+  <link rel="stylesheet" href="10.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <h2>Кафе</h2>
+
+      <div class="product">
+        <h2>Какао</h2>
+        <p>Цена: 30</p>
+        <p class="first-count answer">0</p>
+        <div class="buttons">
+          <button class="first-more" type="button">Ещё</button>
+          <button class="first-less" type="button">Меньше</button>
+        </div>
+      </div>
+
+      <div class="product">
+        <h2>Булка</h2>
+        <p>Цена: 18</p>
+        <p class="second-count answer">0</p>
+        <div class="buttons">
+          <button class="second-more" type="button">Ещё</button>
+          <button class="second-less" type="button">Меньше</button>
+        </div>
+      </div>
+
+      <div class="product">
+        <p>Итого</p>
+        <p class="total answer">0</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    const firstMore = document.querySelector('.first-more');
+    const firstLess = document.querySelector('.first-less');
+    const secondMore = document.querySelector('.second-more');
+    const secondLess = document.querySelector('.second-less');
+    const firstCountText = document.querySelector('.first-count');
+    const secondCountText = document.querySelector('.second-count');
+    const total = document.querySelector('.total');
+    const prices = [30, 18];
+    const counts = [0, 0];
+
+    function totalCost() {
+      return prices[0] * counts[0] + prices[1] * counts[1];
+    }
+
+    function show() {
+      firstCountText.textContent = counts[0];
+      secondCountText.textContent = counts[1];
+      total.textContent = totalCost();
+    }
+
+    firstMore.addEventListener('click', function () {
+      counts[0] = counts[0] + 1;
+      show();
+    });
+
+    firstLess.addEventListener('click', function () {
+      if (counts[0] > 0) {
+        counts[0] = counts[0] - 1;
+      }
+      show();
+    });
+
+    secondMore.addEventListener('click', function () {
+      counts[1] = counts[1] + 1;
+      show();
+    });
+
+    secondLess.addEventListener('click', function () {
+      if (counts[1] > 0) {
+        counts[1] = counts[1] - 1;
+      }
+      show();
+    });
+  </script>
+</body>
+</html>

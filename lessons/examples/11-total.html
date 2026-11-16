@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Сумма любой длины</title>
+  <link rel="stylesheet" href="11.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <h2>Тур</h2>
+      <p class="list answer">5,9,3,6</p>
+      <p class="sum answer">23</p>
+      <button class="add" type="button">Добавить 8</button>
+    </div>
+  </div>
+  <script>
+    const listText = document.querySelector('.list');
+    const sumText = document.querySelector('.sum');
+    const addButton = document.querySelector('.add');
+    const numbers = [5, 9, 3, 6];
+    const extra = 8;
+
+    function sum(values) {
+      let total = 0;
+      for (let i = 0; i < values.length; i++) {
+        total = total + values[i];
+      }
+      return total;
+    }
+
+    addButton.addEventListener('click', function () {
+      numbers.push(extra);
+      listText.textContent = numbers;
+      sumText.textContent = sum(numbers);
+    });
+  </script>
+</body>
+</html>

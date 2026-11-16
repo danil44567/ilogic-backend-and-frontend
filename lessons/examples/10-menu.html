@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Есть в списке</title>
+  <link rel="stylesheet" href="10.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <h2>Кружки</h2>
+      <label>
+        Кружок
+        <input class="club" type="text">
+      </label>
+      <p class="answer"></p>
+    </div>
+  </div>
+  <script>
+    const club = document.querySelector('.club');
+    const answer = document.querySelector('.answer');
+    const clubs = ['танцы', 'хор', 'шахматы'];
+
+    club.addEventListener('input', function () {
+      if (clubs.includes(club.value)) {
+        answer.textContent = 'Запись открыта';
+      } else {
+        answer.textContent = 'Такого кружка нет';
+      }
+    });
+  </script>
+</body>
+</html>

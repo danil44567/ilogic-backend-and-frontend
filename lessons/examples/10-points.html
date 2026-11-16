@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Три номера</title>
+  <link rel="stylesheet" href="10.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <h2>Петанк</h2>
+
+      <div class="product">
+        <h2>Рысь</h2>
+        <p>Шаг: 6</p>
+        <p class="first answer">0</p>
+        <button class="first-add" type="button">+6</button>
+      </div>
+
+      <div class="product">
+        <h2>Барс</h2>
+        <p>Шаг: 2</p>
+        <p class="second answer">0</p>
+        <button class="second-add" type="button">+2</button>
+      </div>
+
+      <div class="product">
+        <h2>Пума</h2>
+        <p>Шаг: 9</p>
+        <p class="third answer">0</p>
+        <button class="third-add" type="button">+9</button>
+      </div>
+
+      <div class="product">
+        <p>Сумма</p>
+        <p class="total answer">0</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    const firstButton = document.querySelector('.first-add');
+    const secondButton = document.querySelector('.second-add');
+    const thirdButton = document.querySelector('.third-add');
+    const firstText = document.querySelector('.first');
+    const secondText = document.querySelector('.second');
+    const thirdText = document.querySelector('.third');
+    const total = document.querySelector('.total');
+    const points = [0, 0, 0];
+    const firstStep = 6;
+    const secondStep = 2;
+    const thirdStep = 9;
+
+    function show() {
+      firstText.textContent = points[0];
+      secondText.textContent = points[1];
+      thirdText.textContent = points[2];
+      total.textContent = points[0] + points[1] + points[2];
+    }
+
+    firstButton.addEventListener('click', function () {
+      points[0] = points[0] + firstStep;
+      show();
+    });
+
+    secondButton.addEventListener('click', function () {
+      points[1] = points[1] + secondStep;
+      show();
+    });
+
+    thirdButton.addEventListener('click', function () {
+      points[2] = points[2] + thirdStep;
+      show();
+    });
+  </script>
+</body>
+</html>

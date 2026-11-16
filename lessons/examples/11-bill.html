@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Общий счёт</title>
+  <link rel="stylesheet" href="11.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <h2>Столовая</h2>
+
+      <div class="product">
+        <h2>Каша</h2>
+        <p>Цена: 35</p>
+        <p class="count answer">0</p>
+      </div>
+
+      <div class="product">
+        <h2>Сок</h2>
+        <p>Цена: 22</p>
+        <p class="count answer">0</p>
+      </div>
+
+      <div class="product">
+        <h2>Яблоко</h2>
+        <p>Цена: 16</p>
+        <p class="count answer">0</p>
+      </div>
+
+      <button class="more" type="button">Ещё</button>
+      <p>Итого</p>
+      <p class="total answer">0</p>
+    </div>
+  </div>
+  <script>
+    const more = document.querySelector('.more');
+    const texts = document.querySelectorAll('.count');
+    const total = document.querySelector('.total');
+    const prices = [35, 22, 16];
+    const counts = [0, 0, 0];
+
+    function totalCost(priceList, countList) {
+      let result = 0;
+      for (let i = 0; i < priceList.length; i++) {
+        result = result + priceList[i] * countList[i];
+      }
+      return result;
+    }
+
+    function show() {
+      for (let i = 0; i < texts.length; i++) {
+        texts[i].textContent = counts[i];
+      }
+      total.textContent = totalCost(prices, counts);
+    }
+
+    more.addEventListener('click', function () {
+      for (let i = 0; i < counts.length; i++) {
+        counts[i] = counts[i] + 1;
+      }
+      show();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Четыре товара</title>
+  <link rel="stylesheet" href="10.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <h2>Ярмарка</h2>
+
+      <div class="product">
+        <h2>Мёд</h2>
+        <p>Цена: 50</p>
+        <p class="count-0 answer">0</p>
+        <div class="buttons">
+          <button class="more-0" type="button">Ещё</button>
+          <button class="less-0" type="button">Меньше</button>
+        </div>
+      </div>
+
+      <div class="product">
+        <h2>Свеча</h2>
+        <p>Цена: 35</p>
+        <p class="count-1 answer">0</p>
+        <div class="buttons">
+          <button class="more-1" type="button">Ещё</button>
+          <button class="less-1" type="button">Меньше</button>
+        </div>
+      </div>
+
+      <div class="product">
+        <h2>Варенье</h2>
+        <p>Цена: 45</p>
+        <p class="count-2 answer">0</p>
+        <div class="buttons">
+          <button class="more-2" type="button">Ещё</button>
+          <button class="less-2" type="button">Меньше</button>
+        </div>
+      </div>
+
+      <div class="product">
+        <h2>Мыло</h2>
+        <p>Цена: 28</p>
+        <p class="count-3 answer">0</p>
+        <div class="buttons">
+          <button class="more-3" type="button">Ещё</button>
+          <button class="less-3" type="button">Меньше</button>
+        </div>
+      </div>
+
+      <div class="product">
+        <p>Итого</p>
+        <p class="total answer">0</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    const prices = [50, 35, 45, 28];
+    const counts = [0, 0, 0, 0];
+    const countTexts = [
+      document.querySelector('.count-0'),
+      document.querySelector('.count-1'),
+      document.querySelector('.count-2'),
+      document.querySelector('.count-3')
+    ];
+    const total = document.querySelector('.total');
+
+    function totalCost() {
+      return prices[0] * counts[0]
+        + prices[1] * counts[1]
+        + prices[2] * counts[2]
+        + prices[3] * counts[3];
+    }
+
+    function show() {
+      countTexts[0].textContent = counts[0];
+      countTexts[1].textContent = counts[1];
+      countTexts[2].textContent = counts[2];
+      countTexts[3].textContent = counts[3];
+      total.textContent = totalCost();
+    }
+
+    document.querySelector('.more-0').addEventListener('click', function () {
+      counts[0] = counts[0] + 1;
+      show();
+    });
+
+    document.querySelector('.less-0').addEventListener('click', function () {
+      if (counts[0] > 0) {
+        counts[0] = counts[0] - 1;
+      }
+      show();
+    });
+
+    document.querySelector('.more-1').addEventListener('click', function () {
+      counts[1] = counts[1] + 1;
+      show();
+    });
+
+    document.querySelector('.less-1').addEventListener('click', function () {
+      if (counts[1] > 0) {
+        counts[1] = counts[1] - 1;
+      }
+      show();
+    });
+
+    document.querySelector('.more-2').addEventListener('click', function () {
+      counts[2] = counts[2] + 1;
+      show();
+    });
+
+    document.querySelector('.less-2').addEventListener('click', function () {
+      if (counts[2] > 0) {
+        counts[2] = counts[2] - 1;
+      }
+      show();
+    });
+
+    document.querySelector('.more-3').addEventListener('click', function () {
+      counts[3] = counts[3] + 1;
+      show();
+    });
+
+    document.querySelector('.less-3').addEventListener('click', function () {
+      if (counts[3] > 0) {
+        counts[3] = counts[3] - 1;
+      }
+      show();
+    });
+  </script>
+</body>
+</html>

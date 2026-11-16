@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Один круг</title>
+  <link rel="stylesheet" href="11.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <h2>Зарядка</h2>
+
+      <div class="product">
+        <h2>Крот</h2>
+        <p>Шаг: 6</p>
+        <p class="points answer">0</p>
+      </div>
+
+      <div class="product">
+        <h2>Бобр</h2>
+        <p>Шаг: 9</p>
+        <p class="points answer">0</p>
+      </div>
+
+      <div class="product">
+        <h2>Выдра</h2>
+        <p>Шаг: 5</p>
+        <p class="points answer">0</p>
+      </div>
+
+      <button class="all" type="button">Круг</button>
+      <p>Сумма</p>
+      <p class="total answer">0</p>
+    </div>
+  </div>
+  <script>
+    const all = document.querySelector('.all');
+    const texts = document.querySelectorAll('.points');
+    const total = document.querySelector('.total');
+    const steps = [6, 9, 5];
+    const points = [0, 0, 0];
+
+    function sum(numbers) {
+      let result = 0;
+      for (let i = 0; i < numbers.length; i++) {
+        result = result + numbers[i];
+      }
+      return result;
+    }
+
+    function show() {
+      for (let i = 0; i < texts.length; i++) {
+        texts[i].textContent = points[i];
+      }
+      total.textContent = sum(points);
+    }
+
+    all.addEventListener('click', function () {
+      for (let i = 0; i < points.length; i++) {
+        points[i] = points[i] + steps[i];
+      }
+      show();
+    });
+  </script>
+</body>
+</html>

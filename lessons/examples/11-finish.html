@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>До цели</title>
+  <link rel="stylesheet" href="11.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <h2>Поход</h2>
+      <p>Цель: 21</p>
+
+      <div class="product">
+        <h2>Аня</h2>
+        <p>Шаг: 5</p>
+        <p class="points answer">0</p>
+        <button class="add" type="button">+5</button>
+      </div>
+
+      <div class="product">
+        <h2>Боря</h2>
+        <p>Шаг: 9</p>
+        <p class="points answer">0</p>
+        <button class="add" type="button">+9</button>
+      </div>
+
+      <div class="product">
+        <h2>Кира</h2>
+        <p>Шаг: 6</p>
+        <p class="points answer">0</p>
+        <button class="add" type="button">+6</button>
+      </div>
+
+      <div class="product">
+        <p>Сумма</p>
+        <p class="total answer">0</p>
+        <p>Осталось</p>
+        <p class="left answer">21</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    const buttons = document.querySelectorAll('.add');
+    const texts = document.querySelectorAll('.points');
+    const total = document.querySelector('.total');
+    const leftText = document.querySelector('.left');
+    const steps = [5, 9, 6];
+    const scores = [0, 0, 0];
+    const goal = 21;
+
+    function sum(numbers) {
+      let result = 0;
+      for (let i = 0; i < numbers.length; i++) {
+        result = result + numbers[i];
+      }
+      return result;
+    }
+
+    function left(goalValue, points) {
+      if (points > goalValue) {
+        return 0;
+      }
+      return goalValue - points;
+    }
+
+    function show() {
+      for (let i = 0; i < texts.length; i++) {
+        texts[i].textContent = scores[i];
+      }
+      const score = sum(scores);
+      total.textContent = score;
+      leftText.textContent = left(goal, score);
+    }
+
+    for (let i = 0; i < buttons.length; i++) {
+      buttons[i].addEventListener('click', function () {
+        scores[i] = scores[i] + steps[i];
+        show();
+      });
+    }
+  </script>
+</body>
+</html>

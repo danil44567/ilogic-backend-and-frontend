@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Лента</title>
+  <link rel="stylesheet" href="10.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <h2>Рекорды</h2>
+      <label>
+        Число
+        <input class="item" type="text" value="9">
+      </label>
+      <div class="buttons">
+        <button class="to-end" type="button">В конец</button>
+        <button class="to-start" type="button">В начало</button>
+        <button class="from-end" type="button">С конца</button>
+        <button class="from-start" type="button">С начала</button>
+      </div>
+      <p class="list answer">11,6</p>
+      <p>Длина</p>
+      <p class="size answer">2</p>
+      <label>
+        Найти
+        <input class="seek" type="text">
+      </label>
+      <p class="found answer"></p>
+    </div>
+  </div>
+  <script>
+    const item = document.querySelector('.item');
+    const seek = document.querySelector('.seek');
+    const toEnd = document.querySelector('.to-end');
+    const toStart = document.querySelector('.to-start');
+    const fromEnd = document.querySelector('.from-end');
+    const fromStart = document.querySelector('.from-start');
+    const listText = document.querySelector('.list');
+    const sizeText = document.querySelector('.size');
+    const found = document.querySelector('.found');
+    const records = [11, 6];
+
+    function show() {
+      listText.textContent = records;
+      sizeText.textContent = records.length;
+      if (records.includes(Number(seek.value))) {
+        found.textContent = 'Уже есть';
+      } else {
+        found.textContent = 'Нет в списке';
+      }
+    }
+
+    toEnd.addEventListener('click', function () {
+      records.push(Number(item.value));
+      show();
+    });
+
+    toStart.addEventListener('click', function () {
+      records.unshift(Number(item.value));
+      show();
+    });
+
+    fromEnd.addEventListener('click', function () {
+      if (records.length > 0) {
+        records.pop();
+      }
+      show();
+    });
+
+    fromStart.addEventListener('click', function () {
+      if (records.length > 0) {
+        records.shift();
+      }
+      show();
+    });
+
+    seek.addEventListener('input', function () {
+      show();
+    });
+  </script>
+</body>
+</html>

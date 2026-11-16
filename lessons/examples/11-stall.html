@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Лавка</title>
+  <link rel="stylesheet" href="11.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <h2>Лавка</h2>
+
+      <div class="product">
+        <h2>Пирог</h2>
+        <p>Цена: 32</p>
+        <p class="count answer">0</p>
+        <div class="buttons">
+          <button class="more" type="button">Ещё</button>
+          <button class="less" type="button">Меньше</button>
+        </div>
+      </div>
+
+      <div class="product">
+        <h2>Морс</h2>
+        <p>Цена: 18</p>
+        <p class="count answer">0</p>
+        <div class="buttons">
+          <button class="more" type="button">Ещё</button>
+          <button class="less" type="button">Меньше</button>
+        </div>
+      </div>
+
+      <div class="product">
+        <h2>Печенье</h2>
+        <p>Цена: 11</p>
+        <p class="count answer">0</p>
+        <div class="buttons">
+          <button class="more" type="button">Ещё</button>
+          <button class="less" type="button">Меньше</button>
+        </div>
+      </div>
+
+      <div class="product">
+        <h2>Какао</h2>
+        <p>Цена: 27</p>
+        <p class="count answer">0</p>
+        <div class="buttons">
+          <button class="more" type="button">Ещё</button>
+          <button class="less" type="button">Меньше</button>
+        </div>
+      </div>
+
+      <div class="product">
+        <p>Итого</p>
+        <p class="total answer">0</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    const moreButtons = document.querySelectorAll('.more');
+    const lessButtons = document.querySelectorAll('.less');
+    const texts = document.querySelectorAll('.count');
+    const total = document.querySelector('.total');
+    const prices = [32, 18, 11, 27];
+    const counts = [0, 0, 0, 0];
+
+    function totalCost(priceList, countList) {
+      let result = 0;
+      for (let i = 0; i < priceList.length; i++) {
+        result = result + priceList[i] * countList[i];
+      }
+      return result;
+    }
+
+    function show() {
+      for (let i = 0; i < texts.length; i++) {
+        texts[i].textContent = counts[i];
+      }
+      total.textContent = totalCost(prices, counts);
+    }
+
+    for (let i = 0; i < moreButtons.length; i++) {
+      moreButtons[i].addEventListener('click', function () {
+        counts[i] = counts[i] + 1;
+        show();
+      });
+    }
+
+    for (let i = 0; i < lessButtons.length; i++) {
+      lessButtons[i].addEventListener('click', function () {
+        if (counts[i] > 0) {
+          counts[i] = counts[i] - 1;
+        }
+        show();
+      });
+    }
+  </script>
+</body>
+</html>

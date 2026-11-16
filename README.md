@@ -9,3 +9,5 @@
 - [Занятие 7. If и else](lessons/07-if-i-else.md)
 - [Занятие 8. Страница считает](lessons/08-stranica-schitaet.md)
 - [Занятие 9. Функция](lessons/09-funkciya.md)
+- [Занятие 10. Массив](lessons/10-massiv.md)
+- [Занятие 11. Цикл](lessons/11-cikl.md)

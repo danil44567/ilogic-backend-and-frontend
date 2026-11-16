@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Очередь</title>
+  <link rel="stylesheet" href="10.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <h2>Касса</h2>
+      <p class="list answer">6,1</p>
+      <p class="left answer">0</p>
+      <div class="buttons">
+        <button class="to-start" type="button">В начало</button>
+        <button class="from-start" type="button">С начала</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    const listText = document.querySelector('.list');
+    const leftText = document.querySelector('.left');
+    const toStart = document.querySelector('.to-start');
+    const fromStart = document.querySelector('.from-start');
+    const line = [6, 1];
+    const next = 9;
+
+    function showList() {
+      listText.textContent = line;
+    }
+
+    toStart.addEventListener('click', function () {
+      line.unshift(next);
+      showList();
+    });
+
+    fromStart.addEventListener('click', function () {
+      if (line.length > 0) {
+        leftText.textContent = line.shift();
+      }
+      showList();
+    });
+  </script>
+</body>
+</html>
