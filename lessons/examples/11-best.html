@@ -9,14 +9,21 @@
   <div class="card">
     <div class="stack">
       <h2>Прыжок</h2>
-      <p>6,15,9,3</p>
-      <button class="record" type="button">Рекорд</button>
-      <p class="answer">0</p>
+      <p class="list answer">6,15,9,3</p>
+      <label>
+        Новый
+        <input class="jump" type="text" value="8">
+      </label>
+      <button class="add" type="button">Добавить</button>
+      <p>Рекорд</p>
+      <p class="record answer">15</p>
     </div>
   </div>
   <script>
-    const record = document.querySelector('.record');
-    const answer = document.querySelector('.answer');
+    const listText = document.querySelector('.list');
+    const jump = document.querySelector('.jump');
+    const add = document.querySelector('.add');
+    const recordText = document.querySelector('.record');
     const jumps = [6, 15, 9, 3];
 
     function biggest(numbers) {
@@ -29,8 +36,14 @@
       return best;
     }
 
-    record.addEventListener('click', function () {
-      answer.textContent = biggest(jumps);
+    function show() {
+      listText.textContent = jumps;
+      recordText.textContent = biggest(jumps);
+    }
+
+    add.addEventListener('click', function () {
+      jumps.push(Number(jump.value));
+      show();
     });
   </script>
 </body>
