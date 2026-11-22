@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Общий счёт</title>
+  <link rel="stylesheet" href="12.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <h2>Столовая</h2>
+
+      <div class="product">
+        <h2>Суп</h2>
+        <p>Цена: 28</p>
+        <p class="count answer">0</p>
+      </div>
+
+      <div class="product">
+        <h2>Компот</h2>
+        <p>Цена: 17</p>
+        <p class="count answer">0</p>
+      </div>
+
+      <div class="product">
+        <h2>Хлеб</h2>
+        <p>Цена: 13</p>
+        <p class="count answer">0</p>
+      </div>
+
+      <button class="more" type="button">Ещё</button>
+      <p>Итого</p>
+      <p class="total answer">0</p>
+    </div>
+  </div>
+  <script>
+    const more = document.querySelector('.more');
+    const texts = document.querySelectorAll('.count');
+    const total = document.querySelector('.total');
+    const goods = [
+      { name: 'Суп', price: 28, count: 0 },
+      { name: 'Компот', price: 17, count: 0 },
+      { name: 'Хлеб', price: 13, count: 0 }
+    ];
+
+    function totalCost(items) {
+      let result = 0;
+      for (let i = 0; i < items.length; i++) {
+        result = result + items[i].price * items[i].count;
+      }
+      return result;
+    }
+
+    function show() {
+      for (let i = 0; i < texts.length; i++) {
+        texts[i].textContent = goods[i].count;
+      }
+      total.textContent = totalCost(goods);
+    }
+
+    more.addEventListener('click', function () {
+      for (let i = 0; i < goods.length; i++) {
+        goods[i].count = goods[i].count + 1;
+      }
+      show();
+    });
+  </script>
+</body>
+</html>

@@ -11,3 +11,4 @@
 - [Занятие 9. Функция](lessons/09-funkciya.md)
 - [Занятие 10. Массив](lessons/10-massiv.md)
 - [Занятие 11. Цикл](lessons/11-cikl.md)
+- [Занятие 12. Объект](lessons/12-obekt.md)

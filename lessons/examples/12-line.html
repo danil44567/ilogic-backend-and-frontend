@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Имя и очки</title>
+  <link rel="stylesheet" href="12.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <h2>Забег</h2>
+      <p>Шаг: 4</p>
+      <p class="line answer">Норка 0</p>
+      <button class="add" type="button">Круг</button>
+    </div>
+  </div>
+  <script>
+    const lineText = document.querySelector('.line');
+    const add = document.querySelector('.add');
+    const player = {
+      name: 'Норка',
+      points: 0,
+      step: 4
+    };
+
+    add.addEventListener('click', function () {
+      player.points = player.points + player.step;
+      lineText.textContent = player.name + ' ' + player.points;
+    });
+  </script>
+</body>
+</html>

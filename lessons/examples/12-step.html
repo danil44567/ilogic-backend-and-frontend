@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Один шаг</title>
+  <link rel="stylesheet" href="12.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <h2>Зарядка</h2>
+      <div class="product">
+        <h2>Крот</h2>
+        <p>Шаг: 8</p>
+        <p class="points answer">0</p>
+      </div>
+      <button class="add" type="button">Шаг</button>
+    </div>
+  </div>
+  <script>
+    const answer = document.querySelector('.points');
+    const add = document.querySelector('.add');
+    const player = {
+      name: 'Крот',
+      points: 0,
+      step: 8
+    };
+
+    add.addEventListener('click', function () {
+      player.points = player.points + player.step;
+      answer.textContent = player.points;
+    });
+  </script>
+</body>
+</html>

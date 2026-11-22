@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>До цели</title>
+  <link rel="stylesheet" href="12.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <h2>Сбор</h2>
+      <p>Цель: 20</p>
+
+      <div class="product">
+        <h2>Нина</h2>
+        <p>Шаг: 8</p>
+        <p class="points answer">0</p>
+        <button class="add" type="button">+8</button>
+      </div>
+
+      <div class="product">
+        <h2>Марк</h2>
+        <p>Шаг: 5</p>
+        <p class="points answer">0</p>
+        <button class="add" type="button">+5</button>
+      </div>
+
+      <div class="product">
+        <h2>Тома</h2>
+        <p>Шаг: 3</p>
+        <p class="points answer">0</p>
+        <button class="add" type="button">+3</button>
+      </div>
+
+      <div class="product">
+        <p>Сумма</p>
+        <p class="total answer">0</p>
+        <p>Осталось</p>
+        <p class="left answer">20</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    const buttons = document.querySelectorAll('.add');
+    const texts = document.querySelectorAll('.points');
+    const total = document.querySelector('.total');
+    const leftText = document.querySelector('.left');
+    const players = [
+      { name: 'Нина', points: 0, step: 8 },
+      { name: 'Марк', points: 0, step: 5 },
+      { name: 'Тома', points: 0, step: 3 }
+    ];
+    const goal = 20;
+
+    function sum(items) {
+      let result = 0;
+      for (let i = 0; i < items.length; i++) {
+        result = result + items[i].points;
+      }
+      return result;
+    }
+
+    function left(goalValue, points) {
+      if (points > goalValue) {
+        return 0;
+      }
+      return goalValue - points;
+    }
+
+    function show() {
+      for (let i = 0; i < texts.length; i++) {
+        texts[i].textContent = players[i].points;
+      }
+      const score = sum(players);
+      total.textContent = score;
+      leftText.textContent = left(goal, score);
+    }
+
+    for (let i = 0; i < buttons.length; i++) {
+      buttons[i].addEventListener('click', function () {
+        players[i].points = players[i].points + players[i].step;
+        show();
+      });
+    }
+  </script>
+</body>
+</html>

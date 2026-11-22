@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Сколько дороже</title>
+  <link rel="stylesheet" href="12.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <h2>Лоток</h2>
+      <p>Мел 8,Краска 19,Губка 8,Кисть 14,Клей 5</p>
+      <label>
+        Граница
+        <input class="limit" type="text">
+      </label>
+      <p class="answer">0</p>
+    </div>
+  </div>
+  <script>
+    const limit = document.querySelector('.limit');
+    const answer = document.querySelector('.answer');
+    const goods = [
+      { name: 'Мел', price: 8 },
+      { name: 'Краска', price: 19 },
+      { name: 'Губка', price: 8 },
+      { name: 'Кисть', price: 14 },
+      { name: 'Клей', price: 5 }
+    ];
+
+    function countAbove(items, border) {
+      let count = 0;
+      for (let i = 0; i < items.length; i++) {
+        if (items[i].price > border) {
+          count = count + 1;
+        }
+      }
+      return count;
+    }
+
+    limit.addEventListener('input', function () {
+      answer.textContent = countAbove(goods, Number(limit.value));
+    });
+  </script>
+</body>
+</html>

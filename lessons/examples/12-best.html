@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Дороже всех</title>
+  <link rel="stylesheet" href="12.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <h2>Витрина</h2>
+      <p class="list answer">Лента 5,Банка 20,Нитка 7,Пуговица 3</p>
+      <label>
+        Название
+        <input class="title" type="text" value="Скотч">
+      </label>
+      <label>
+        Цена
+        <input class="price" type="text" value="10">
+      </label>
+      <button class="add" type="button">Добавить</button>
+      <p>Дороже</p>
+      <p class="record answer">Банка</p>
+    </div>
+  </div>
+  <script>
+    const listText = document.querySelector('.list');
+    const title = document.querySelector('.title');
+    const price = document.querySelector('.price');
+    const add = document.querySelector('.add');
+    const recordText = document.querySelector('.record');
+    const goods = [
+      { name: 'Лента', price: 5 },
+      { name: 'Банка', price: 20 },
+      { name: 'Нитка', price: 7 },
+      { name: 'Пуговица', price: 3 }
+    ];
+
+    function line(items) {
+      let text = '';
+      for (let i = 0; i < items.length; i++) {
+        if (i > 0) {
+          text = text + ',';
+        }
+        text = text + items[i].name + ' ' + items[i].price;
+      }
+      return text;
+    }
+
+    function dearest(items) {
+      let best = items[0];
+      for (let i = 1; i < items.length; i++) {
+        if (items[i].price > best.price) {
+          best = items[i];
+        }
+      }
+      return best;
+    }
+
+    function show() {
+      listText.textContent = line(goods);
+      recordText.textContent = dearest(goods).name;
+    }
+
+    add.addEventListener('click', function () {
+      goods.push({
+        name: title.value,
+        price: Number(price.value)
+      });
+      show();
+    });
+  </script>
+</body>
+</html>
