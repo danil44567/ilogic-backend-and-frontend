@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Из полей</title>
+  <link rel="stylesheet" href="13.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <h2>Ларь</h2>
+      <div class="list stack"></div>
+      <label>
+        Название
+        <input class="title" type="text" value="Груша">
+      </label>
+      <label>
+        Цена
+        <input class="price" type="text" value="14">
+      </label>
+      <button class="add" type="button">Добавить</button>
+    </div>
+  </div>
+  <script>
+    const list = document.querySelector('.list');
+    const title = document.querySelector('.title');
+    const price = document.querySelector('.price');
+    const add = document.querySelector('.add');
+    const goods = [
+      { name: 'Лимон', price: 12 }
+    ];
+
+    function show() {
+      list.textContent = '';
+      for (let i = 0; i < goods.length; i++) {
+        const paragraph = document.createElement('p');
+        paragraph.textContent = goods[i].name + ' ' + goods[i].price;
+        list.append(paragraph);
+      }
+    }
+
+    add.addEventListener('click', function () {
+      goods.push({
+        name: title.value,
+        price: Number(price.value)
+      });
+      show();
+    });
+
+    show();
+  </script>
+</body>
+</html>

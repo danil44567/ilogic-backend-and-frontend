@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Один абзац</title>
+  <link rel="stylesheet" href="13.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <h2>Кухня</h2>
+      <div class="list stack"></div>
+      <button class="add" type="button">Добавить</button>
+    </div>
+  </div>
+  <script>
+    const list = document.querySelector('.list');
+    const add = document.querySelector('.add');
+
+    add.addEventListener('click', function () {
+      const paragraph = document.createElement('p');
+      paragraph.textContent = 'Соль';
+      list.append(paragraph);
+    });
+  </script>
+</body>
+</html>

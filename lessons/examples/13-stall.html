@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Лавка</title>
+  <link rel="stylesheet" href="13.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <h2>Буфет</h2>
+      <div class="list stack"></div>
+      <p>Итого</p>
+      <p class="total answer">0</p>
+    </div>
+  </div>
+  <script>
+    const list = document.querySelector('.list');
+    const total = document.querySelector('.total');
+    const goods = [
+      { name: 'Оладьи', price: 29, count: 0 },
+      { name: 'Какао', price: 17, count: 0 },
+      { name: 'Ватрушка', price: 12, count: 0 },
+      { name: 'Сбитень', price: 20, count: 0 }
+    ];
+
+    function totalCost(items) {
+      let total = 0;
+      for (let i = 0; i < items.length; i++) {
+        total = total + items[i].price * items[i].count;
+      }
+      return total;
+    }
+
+    function show() {
+      list.textContent = '';
+      for (let i = 0; i < goods.length; i++) {
+        const card = document.createElement('div');
+        card.classList.add('product');
+
+        const nameText = document.createElement('p');
+        nameText.textContent = goods[i].name;
+
+        const priceText = document.createElement('p');
+        priceText.textContent = 'Цена: ' + goods[i].price;
+
+        const countText = document.createElement('p');
+        countText.textContent = goods[i].count;
+
+        const more = document.createElement('button');
+        more.type = 'button';
+        more.textContent = 'Ещё';
+        more.addEventListener('click', function () {
+          goods[i].count = goods[i].count + 1;
+          show();
+        });
+
+        const less = document.createElement('button');
+        less.type = 'button';
+        less.textContent = 'Меньше';
+        less.addEventListener('click', function () {
+          if (goods[i].count > 0) {
+            goods[i].count = goods[i].count - 1;
+          }
+          show();
+        });
+
+        const row = document.createElement('div');
+        row.classList.add('buttons');
+        row.append(more);
+        row.append(less);
+
+        card.append(nameText);
+        card.append(priceText);
+        card.append(countText);
+        card.append(row);
+        list.append(card);
+      }
+      total.textContent = totalCost(goods);
+    }
+
+    show();
+  </script>
+</body>
+</html>

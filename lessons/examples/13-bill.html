@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Общий счёт</title>
+  <link rel="stylesheet" href="13.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <h2>Столовая</h2>
+      <div class="list stack"></div>
+      <button class="more" type="button">Ещё</button>
+      <p>Итого</p>
+      <p class="total answer">0</p>
+    </div>
+  </div>
+  <script>
+    const list = document.querySelector('.list');
+    const more = document.querySelector('.more');
+    const total = document.querySelector('.total');
+    const goods = [
+      { name: 'Борщ', price: 26, count: 0 },
+      { name: 'Кекс', price: 19, count: 0 },
+      { name: 'Рис', price: 8, count: 0 }
+    ];
+
+    function totalCost(items) {
+      let total = 0;
+      for (let i = 0; i < items.length; i++) {
+        total = total + items[i].price * items[i].count;
+      }
+      return total;
+    }
+
+    function show() {
+      list.textContent = '';
+      for (let i = 0; i < goods.length; i++) {
+        const card = document.createElement('div');
+        card.classList.add('product');
+
+        const nameText = document.createElement('p');
+        nameText.textContent = goods[i].name + ' ' + goods[i].price;
+
+        const countText = document.createElement('p');
+        countText.textContent = goods[i].count;
+
+        card.append(nameText);
+        card.append(countText);
+        list.append(card);
+      }
+      total.textContent = totalCost(goods);
+    }
+
+    more.addEventListener('click', function () {
+      for (let i = 0; i < goods.length; i++) {
+        goods[i].count = goods[i].count + 1;
+      }
+      show();
+    });
+
+    show();
+  </script>
+</body>
+</html>

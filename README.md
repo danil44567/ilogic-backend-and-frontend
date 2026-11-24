@@ -12,3 +12,4 @@
 - [Занятие 10. Массив](lessons/10-massiv.md)
 - [Занятие 11. Цикл](lessons/11-cikl.md)
 - [Занятие 12. Объект](lessons/12-obekt.md)
+- [Занятие 13. Новый блок](lessons/13-novyy-blok.md)

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>До цели</title>
+  <link rel="stylesheet" href="13.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <h2>Сбор</h2>
+      <p>Цель: 18</p>
+      <div class="list stack"></div>
+      <p>Сумма</p>
+      <p class="total answer">0</p>
+      <p>Осталось</p>
+      <p class="left answer">18</p>
+    </div>
+  </div>
+  <script>
+    const list = document.querySelector('.list');
+    const total = document.querySelector('.total');
+    const leftText = document.querySelector('.left');
+    const players = [
+      { name: 'Вера', points: 0, step: 4 },
+      { name: 'Лев', points: 0, step: 7 },
+      { name: 'Зоя', points: 0, step: 3 }
+    ];
+    const goal = 18;
+
+    function sum(items) {
+      let total = 0;
+      for (let i = 0; i < items.length; i++) {
+        total = total + items[i].points;
+      }
+      return total;
+    }
+
+    function left(goalValue, points) {
+      if (points > goalValue) {
+        return 0;
+      }
+      return goalValue - points;
+    }
+
+    function show() {
+      list.textContent = '';
+      for (let i = 0; i < players.length; i++) {
+        const card = document.createElement('div');
+        card.classList.add('product');
+
+        const nameText = document.createElement('p');
+        nameText.textContent = players[i].name + ' ' + players[i].points;
+
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.textContent = '+' + players[i].step;
+        button.addEventListener('click', function () {
+          players[i].points = players[i].points + players[i].step;
+          show();
+        });
+
+        card.append(nameText);
+        card.append(button);
+        list.append(card);
+      }
+      const score = sum(players);
+      total.textContent = score;
+      leftText.textContent = left(goal, score);
+    }
+
+    show();
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Меню</title>
+  <link rel="stylesheet" href="13.css">
+</head>
+<body>
+  <div class="card">
+    <div class="stack">
+      <h2>Завтрак</h2>
+      <div class="list stack"></div>
+      <button class="add" type="button">Добавить варенье</button>
+    </div>
+  </div>
+  <script>
+    const list = document.querySelector('.list');
+    const add = document.querySelector('.add');
+    const goods = [
+      { name: 'Омлет', price: 28 },
+      { name: 'Творог', price: 16 },
+      { name: 'Ягода', price: 11 }
+    ];
+
+    function show() {
+      list.textContent = '';
+      for (let i = 0; i < goods.length; i++) {
+        const paragraph = document.createElement('p');
+        paragraph.textContent = goods[i].name + ' ' + goods[i].price;
+        list.append(paragraph);
+      }
+    }
+
+    add.addEventListener('click', function () {
+      goods.push({ name: 'Варенье', price: 21 });
+      show();
+    });
+
+    show();
+  </script>
+</body>
+</html>
